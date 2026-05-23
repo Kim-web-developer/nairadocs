@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>NairaDocs — Professional Invoices for Nigerian Businesses</title>
+<meta name="description" content="Create professional invoices, proposals, receipts and more in 60 seconds. Free for Nigerian businesses. No signup needed."/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Bricolage+Grotesque:wght@700;800&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --g:#0a6e3f;--g2:#0d8a50;--g3:#f0faf4;
+  --gold:#c8922a;
+  --tx:#111827;--mu:#6b7280;--bd:#e5e7eb;
+  --bg:#f9fafb;--wh:#fff;
+  --pro:#7c3aed;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);-webkit-font-smoothing:antialiased;line-height:1.6}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  background:rgba(255,255,255,.97);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--bd);
+  padding:0 5%;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo-mark{
+  width:36px;height:36px;border-radius:9px;
+  background:var(--g);
+  display:flex;align-items:center;justify-content:center;
+}
+.nav-logo-mark svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:2.5}
+.nav-logo-text{font-family:'Bricolage Grotesque',sans-serif;font-size:20px;font-weight:800;color:var(--tx)}
+.nav-logo-text span{color:var(--g)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-link{font-size:13.5px;font-weight:500;color:var(--mu);text-decoration:none;transition:color .2s}
+.nav-link:hover{color:var(--tx)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-signin{
+  font-size:13px;font-weight:600;color:var(--tx);
+  padding:8px 16px;border-radius:8px;
+  text-decoration:none;transition:all .2s;
+}
+.nav-signin:hover{color:var(--g)}
+.nav-upgrade{
+  font-size:13px;font-weight:600;color:var(--tx);
+  padding:8px 16px;border-radius:8px;
+  text-decoration:none;border:1.5px solid var(--bd);
+  transition:all .2s;
+}
+.nav-upgrade:hover{border-color:var(--g);color:var(--g)}
+.nav-cta{
+  background:var(--g);color:#fff;
+  font-size:13px;font-weight:700;
+  padding:9px 20px;border-radius:9px;
+  text-decoration:none;transition:opacity .2s;
+  display:flex;align-items:center;gap:6px;
+}
+.nav-cta:hover{opacity:.88}
+.nav-cta svg{width:14px;height:14px;fill:none;stroke:#fff;stroke-width:2.5}
+
+/* ── HERO — Lovable split layout ── */
+.hero{
+  min-height: 100vh;
+  padding-top: 64px;
+  background: linear-gradient(135deg, #fefce8 0%, #f0fdf4 50%, #dcfce7 100%);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: stretch;
+}
+.hero-inner{
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+.hero-left{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 0;
+}
+.hero-right{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 60px 0;
+  position: relative;
+}
+.hero-badge{
+  display: inline-flex;align-items:center;gap:6px;
+  background:#fff;color:var(--g);
+  font-size:12px;font-weight:600;
+  padding:5px 12px;border-radius:20px;
+  border:1px solid rgba(10,110,63,.2);
+  margin-bottom:24px;
+  box-shadow:0 1px 4px rgba(0,0,0,.06);
+  width:fit-content;
+}
+.hero-badge::before{content:'•';color:var(--g);font-size:14px}
+.hero h1{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:clamp(36px,4.5vw,56px);
+  font-weight:800;
+  line-height:1.08;
+  letter-spacing:-2px;
+  color:var(--tx);
+  margin-bottom:20px;
+}
+.hero-sub{
+  font-size:17px;color:var(--mu);
+  line-height:1.65;max-width:460px;
+  margin-bottom:36px;font-weight:400;
+}
+.hero-sub-short{ display:none; }
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+.btn-primary{
+  background:var(--g);color:#fff;
+  font-size:15px;font-weight:700;
+  padding:14px 28px;border-radius:10px;
+  text-decoration:none;
+  display:inline-flex;align-items:center;gap:7px;
+  transition:all .2s;border:none;cursor:pointer;
+  font-family:'DM Sans',sans-serif;
+}
+.btn-primary:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 8px 24px rgba(10,110,63,.25)}
+.btn-primary svg{width:15px;height:15px;fill:none;stroke:#fff;stroke-width:2.5}
+.btn-ghost{
+  background:var(--wh);color:var(--tx);
+  font-size:15px;font-weight:600;
+  padding:14px 24px;border-radius:10px;
+  text-decoration:none;
+  display:inline-flex;align-items:center;gap:6px;
+  border:1.5px solid #d1d5db;transition:all .2s;
+  font-family:'DM Sans',sans-serif;
+}
+.btn-ghost:hover{border-color:var(--tx)}
+.hero-trust{display:flex;gap:20px;flex-wrap:wrap}
+.hero-trust-item{
+  display:flex;align-items:center;gap:6px;
+  font-size:12.5px;color:var(--mu);font-weight:500;
+}
+.hero-trust-item::before{
+  content:'✓';color:var(--g);font-weight:700;font-size:12px;
+}
+
+/* Invoice mockup */
+.invoice-mockup{
+  background:#fff;
+  border-radius:16px;
+  box-shadow:0 20px 60px rgba(0,0,0,.12),0 4px 16px rgba(0,0,0,.06);
+  width:100%;max-width:420px;
+  overflow:hidden;
+  position:relative;
+}
+.mockup-header{
+  background:var(--g);padding:18px 22px;
+  display:flex;justify-content:space-between;align-items:flex-start;
+}
+.mockup-brand{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:16px;font-weight:800;color:#fff;
+}
+.mockup-brand span{color:#86efac}
+.mockup-paid{
+  background:#fff;color:var(--g);
+  font-size:10px;font-weight:700;
+  padding:3px 10px;border-radius:20px;
+  display:flex;align-items:center;gap:4px;
+}
+.mockup-paid::before{content:'•';font-size:14px;color:#22c55e}
+.mockup-meta{font-size:11px;color:rgba(255,255,255,.7);margin-top:4px}
+.mockup-body{padding:18px 22px}
+.mockup-parties{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:12px;margin-bottom:16px;padding-bottom:14px;
+  border-bottom:1px solid #f1f5f9;
+}
+.mockup-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#9ca3af;margin-bottom:3px}
+.mockup-name{font-size:13px;font-weight:700;color:var(--tx)}
+.mockup-detail{font-size:11px;color:var(--mu)}
+.mockup-items{margin-bottom:14px}
+.mockup-item{
+  display:flex;justify-content:space-between;
+  padding:7px 0;border-bottom:1px solid #f9fafb;
+  font-size:12.5px;
+}
+.mockup-item-name{color:var(--tx)}
+.mockup-item-amount{font-weight:600;color:var(--tx)}
+.mockup-totals{padding-top:10px}
+.mockup-subtotal{
+  display:flex;justify-content:space-between;
+  font-size:11.5px;color:var(--mu);padding:2px 0;
+}
+.mockup-total{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-top:10px;margin-top:8px;
+  border-top:2px solid var(--g);
+}
+.mockup-total-label{font-size:16px;font-weight:700;color:var(--tx)}
+.mockup-total-amount{font-size:20px;font-weight:800;color:var(--g)}
+.mockup-wa-btn{
+  background:var(--g);color:#fff;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px;
+  font-size:13.5px;font-weight:700;
+  border-radius:0 0 16px 16px;
+  cursor:pointer;
+  margin-top:16px;
+}
+.mockup-wa-btn svg{width:16px;height:16px}
+
+/* Toast notification */
+.mockup-toast{
+  position:absolute;bottom:-14px;left:16px;
+  background:#fff;
+  border-radius:12px;
+  padding:10px 14px;
+  display:flex;align-items:center;gap:10px;
+  box-shadow:0 8px 24px rgba(0,0,0,.14);
+  width:fit-content;
+}
+.toast-icon{
+  width:32px;height:32px;border-radius:8px;
+  background:var(--g3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;flex-shrink:0;
+}
+.toast-text{font-size:11.5px;font-weight:600;color:var(--tx)}
+.toast-sub{font-size:10.5px;color:var(--mu);margin-top:1px}
+
+/* ── COMPARISON TABLE — "How we compare" section ── */
+.compare-section{
+  padding:80px 5%;background:#f5f4ef;
+}
+.compare-inner{max-width:1000px;margin:0 auto}
+.compare-eyebrow{
+  font-size:11px;font-weight:700;text-transform:uppercase;
+  letter-spacing:1.2px;color:var(--g);margin-bottom:12px;
+  text-align:center;
+}
+.compare-h{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:clamp(28px,3.5vw,42px);
+  font-weight:800;letter-spacing:-1.5px;
+  color:var(--tx);line-height:1.15;
+  margin-bottom:12px;
+  text-align:center;
+}
+.compare-sub{
+  font-size:15px;color:var(--mu);
+  line-height:1.65;max-width:520px;
+  margin:0 auto 48px;text-align:center;
+}
+.compare-table{
+  width:100%;border-radius:16px;
+  border:1.5px solid var(--bd);
+  overflow:hidden;
+  background:#fff;
+  box-shadow:0 2px 12px rgba(0,0,0,.05);
+}
+.compare-table table{width:100%;border-collapse:collapse}
+.compare-table thead tr{background:#fafafa;border-bottom:1.5px solid var(--bd)}
+.compare-table thead th{
+  padding:14px 20px;
+  font-size:10px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.8px;
+  color:var(--mu);text-align:center;
+}
+.compare-table thead th:first-child{text-align:left;width:34%}
+.compare-table thead th.ours{color:var(--g)}
+.compare-table tbody tr{border-bottom:1px solid var(--bd)}
+.compare-table tbody tr:last-child{border-bottom:none}
+.compare-table tbody tr:hover{background:#fafafa}
+.compare-table tbody td{
+  padding:14px 20px;
+  font-size:13.5px;color:var(--tx);
+  text-align:center;vertical-align:middle;
+}
+.compare-table tbody td:first-child{text-align:left;font-weight:500}
+.compare-check{color:var(--g);font-size:18px;font-weight:700}
+.compare-x{color:#d1d5db;font-size:16px}
+.compare-check-sm{color:#9ca3af;font-size:16px}
+
+/* ── PICK A DOCUMENT ── */
+.pick-section{padding:56px 5%;background:#fafaf7;border-bottom:1px solid var(--bd)}
+.pick-label{
+  font-size:11px;font-weight:700;
+  text-transform:uppercase;letter-spacing:1.2px;
+  color:var(--mu);margin-bottom:16px;
+}
+.doc-grid{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:12px;
+}
+.doc-card{
+  background:var(--wh);
+  border:1.5px solid var(--bd);
+  border-radius:12px;
+  padding:18px 14px;
+  text-decoration:none;
+  transition:all .2s;
+  display:flex;flex-direction:column;gap:10px;
+}
+.doc-card:hover{
+  border-color:var(--g);
+  box-shadow:0 4px 16px rgba(10,110,63,.08);
+  transform:translateY(-2px);
+}
+.doc-card-icon{
+  width:36px;height:36px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;
+}
+.doc-card-title{font-size:13px;font-weight:700;color:var(--tx)}
+.doc-card-sub{font-size:11px;color:var(--mu);margin-top:2px;display:flex;align-items:center;gap:4px}
+.doc-card-sub svg{width:10px;height:10px;fill:none;stroke:var(--mu);stroke-width:2}
+
+/* ── FEATURE CARDS (3 col) ── */
+.features-section{padding:56px 5%;background:#fff;border-bottom:1px solid var(--bd)}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.feat-card{
+  background:var(--wh);border:1.5px solid var(--bd);
+  border-radius:14px;padding:24px;
+  transition:all .2s;
+}
+.feat-card:hover{border-color:rgba(10,110,63,.3);background:var(--wh);box-shadow:0 4px 20px rgba(10,110,63,.06)}
+.feat-icon{
+  width:40px;height:40px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;margin-bottom:12px;
+}
+.feat-title{font-size:15px;font-weight:700;color:var(--tx);margin-bottom:6px}
+.feat-desc{font-size:13px;color:var(--mu);line-height:1.6}
+
+/* ── AI FEATURES ── */
+.ai-section{padding:80px 5%;background:var(--bg);border-bottom:1px solid var(--bd)}
+.ai-inner{max-width:1100px;margin:0 auto}
+.section-eyebrow{
+  font-size:11px;font-weight:700;text-transform:uppercase;
+  letter-spacing:1.2px;color:var(--g);margin-bottom:10px;
+  display:flex;align-items:center;gap:8px;
+}
+.section-eyebrow::before{content:'';width:16px;height:1.5px;background:var(--g);flex-shrink:0}
+.section-h{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:clamp(26px,3.5vw,38px);
+  font-weight:800;letter-spacing:-1.5px;
+  color:var(--tx);line-height:1.15;
+  margin-bottom:10px;
+}
+.section-sub{font-size:16px;color:var(--mu);line-height:1.65;margin-bottom:44px;max-width:500px}
+.ai-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ai-card{
+  background:var(--wh);border:1.5px solid var(--bd);
+  border-radius:14px;padding:22px;transition:all .2s;
+}
+.ai-card:hover{border-color:rgba(124,58,237,.3);box-shadow:0 4px 20px rgba(124,58,237,.06)}
+.ai-card-icon{
+  width:40px;height:40px;border-radius:10px;
+  background:linear-gradient(135deg,#7c3aed,#a78bfa);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;margin-bottom:14px;
+}
+.ai-card-badge{
+  display:inline-flex;align-items:center;
+  background:#f5f3ff;color:#7c3aed;
+  font-size:10px;font-weight:700;
+  padding:2px 8px;border-radius:10px;
+  margin-bottom:10px;
+}
+.ai-card-title{font-size:14px;font-weight:700;color:var(--tx);margin-bottom:5px}
+.ai-card-desc{font-size:12px;color:var(--mu);line-height:1.6}
+
+/* ── FLOW SECTION ── */
+.flow-section{padding:80px 5%;background:#fff;border-bottom:1px solid var(--bd)}
+.flow-inner{max-width:1100px;margin:0 auto}
+.flow-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:44px;position:relative}
+.flow-steps::before{
+  content:'';position:absolute;top:24px;left:calc(16.67% + 12px);
+  right:calc(16.67% + 12px);height:2px;
+  background:linear-gradient(90deg,var(--g),var(--g2));
+  z-index:0;
+}
+.flow-step{position:relative;z-index:1;padding:0 20px;text-align:center}
+.flow-num{
+  width:48px;height:48px;border-radius:50%;
+  background:var(--g);color:#fff;
+  font-size:16px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 16px;
+  border:3px solid #fff;
+  box-shadow:0 0 0 2px var(--g);
+}
+.flow-title{font-size:15px;font-weight:700;color:var(--tx);margin-bottom:6px}
+.flow-desc{font-size:13px;color:var(--mu);line-height:1.6}
+
+/* ── TESTIMONIALS ── */
+.testi-section{padding:80px 5%;background:var(--bg);border-bottom:1px solid var(--bd)}
+.testi-inner{max-width:1100px;margin:0 auto}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.testi-card{
+  background:var(--wh);border:1.5px solid var(--bd);
+  border-radius:14px;padding:24px;transition:all .2s;
+}
+.testi-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.06);transform:translateY(-2px)}
+.testi-stars{color:#f59e0b;font-size:13px;letter-spacing:2px;margin-bottom:12px}
+.testi-text{font-size:13px;color:var(--tx);line-height:1.75;font-style:italic;margin-bottom:18px}
+.testi-author{display:flex;align-items:center;gap:10px}
+.testi-av{
+  width:38px;height:38px;border-radius:50%;
+  color:#fff;display:flex;align-items:center;
+  justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;
+}
+.testi-name{font-size:13px;font-weight:700;color:var(--tx)}
+.testi-role{font-size:11px;color:var(--mu)}
+
+/* ── PRICING ── */
+.pricing-section{padding:80px 5%;background:#fafaf7;border-bottom:1px solid var(--bd)}
+.pricing-inner{max-width:880px;margin:0 auto}
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:44px}
+.price-card{
+  border:1.5px solid var(--bd);border-radius:16px;
+  padding:26px;background:var(--wh);
+  position:relative;transition:all .2s;
+}
+.price-card:hover{box-shadow:0 6px 24px rgba(0,0,0,.07)}
+.price-card.featured{border-color:var(--g);box-shadow:0 4px 20px rgba(10,110,63,.1)}
+.price-badge{
+  position:absolute;top:-10px;left:20px;
+  background:var(--g);color:#fff;
+  font-size:9px;font-weight:700;
+  padding:3px 12px;border-radius:20px;letter-spacing:.3px;
+}
+.price-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--mu);margin-bottom:6px}
+.price-amount{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:36px;font-weight:800;color:var(--tx);
+  letter-spacing:-1.5px;line-height:1;margin-bottom:4px;
+}
+.price-amount small{font-size:13px;font-weight:500;color:var(--mu);letter-spacing:0}
+.price-period{font-size:12px;color:#059669;font-weight:600;margin-bottom:10px;min-height:18px}
+.price-desc{font-size:13px;color:var(--mu);margin-bottom:18px;line-height:1.5}
+.price-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:22px}
+.price-list li{font-size:12px;color:var(--tx);display:flex;align-items:flex-start;gap:7px;line-height:1.45}
+.price-list li::before{content:'✓';color:var(--g);font-weight:700;flex-shrink:0;font-size:11px;margin-top:1px}
+.price-list li.no::before{content:'—';color:#d1d5db}
+.price-list li.no{color:var(--mu)}
+.price-btn{
+  width:100%;padding:12px;border-radius:9px;
+  font-size:13px;font-weight:700;cursor:pointer;
+  font-family:'DM Sans',sans-serif;
+  border:none;text-align:center;text-decoration:none;
+  display:block;transition:all .2s;
+}
+.price-btn-free{background:var(--bg);color:var(--tx)}
+.price-btn-free:hover{background:#e5e7eb}
+.price-btn-pro{background:var(--g);color:#fff}
+.price-btn-pro:hover{opacity:.9}
+.price-btn-doc{background:var(--bg);color:var(--tx);border:1.5px solid var(--bd)}
+.price-btn-doc:hover{border-color:var(--tx)}
+
+/* ── FAQ ── */
+.faq-section{padding:72px 5%;background:var(--bg);border-bottom:1px solid var(--bd)}
+.faq-inner{max-width:680px;margin:0 auto}
+.faq-list{margin-top:36px;display:flex;flex-direction:column;gap:0}
+.faq-item{border-bottom:1px solid var(--bd);overflow:hidden}
+.faq-item:first-child{border-top:1px solid var(--bd)}
+.faq-q{
+  width:100%;background:none;border:none;padding:18px 0;
+  text-align:left;font-size:15px;font-weight:600;color:var(--tx);
+  cursor:pointer;display:flex;justify-content:space-between;
+  align-items:center;gap:12px;
+  font-family:'DM Sans',sans-serif;line-height:1.4;
+}
+.faq-q:hover{color:var(--g)}
+.faq-icon{font-size:20px;color:var(--mu);flex-shrink:0;transition:transform .25s;line-height:1}
+.faq-item.open .faq-icon{transform:rotate(45deg);color:var(--g)}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height .3s ease,padding .3s ease;
+  font-size:14px;color:var(--mu);line-height:1.7;padding:0;
+}
+.faq-item.open .faq-a{max-height:200px;padding-bottom:16px}
+
+/* ── FINAL CTA ── */
+.final-cta{padding:80px 5%;background:var(--g);text-align:center}
+.final-cta h2{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:clamp(28px,4vw,44px);font-weight:800;
+  color:#fff;letter-spacing:-1.5px;line-height:1.15;
+  margin-bottom:10px;
+}
+.final-cta p{font-size:16px;color:rgba(255,255,255,.72);margin-bottom:28px}
+
+/* ── TAX NUDGE ── */
+.tax-nudge{
+  background:#fefce8;border-top:1px solid #fde68a;border-bottom:1px solid #fde68a;
+  padding:14px 5%;text-align:center;font-size:13px;color:#854d0e;
+}
+.tax-nudge strong{font-weight:700;color:#78350f}
+.tax-nudge a{color:var(--g);font-weight:700;text-decoration:none;border-bottom:1px solid rgba(10,110,63,.3)}
+
+/* ── FOOTER ── */
+footer{background:#111827;padding:32px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.f-logo{display:flex;align-items:center;gap:8px}
+.f-logo-mark{width:30px;height:30px;border-radius:7px;background:var(--g);display:flex;align-items:center;justify-content:center}
+.f-logo-mark svg{width:16px;height:16px;fill:none;stroke:#fff;stroke-width:2.5}
+.f-brand{font-family:'Bricolage Grotesque',sans-serif;font-size:17px;font-weight:800;color:#fff}
+.f-links{display:flex;gap:18px}
+.f-link{font-size:13px;color:rgba(255,255,255,.4);text-decoration:none;transition:color .2s}
+.f-link:hover{color:#fff}
+.f-copy{font-size:11px;color:rgba(255,255,255,.25);width:100%;margin-top:6px}
+
+/* ── FEATURES CAROUSEL ── */
+.feat-carousel-section{padding:80px 5%;background:#f0faf4;border-bottom:1px solid #d1eadc}
+.feat-carousel-inner{max-width:1200px;margin:0 auto}
+.fcar-viewport{overflow:hidden;position:relative}
+.fcar-track{
+  display:flex;gap:16px;
+  transition:transform .35s cubic-bezier(.4,0,.2,1);
+  will-change:transform;
+}
+.fcar-card{
+  flex:0 0 calc((100% - 32px) / 3);
+  background:#fff;border:1.5px solid #d1eadc;
+  border-radius:14px;padding:22px;
+  transition:all .2s;
+}
+.fcar-card:hover{border-color:var(--g);box-shadow:0 4px 20px rgba(10,110,63,.08)}
+.fcar-icon{font-size:26px;margin-bottom:10px;display:block}
+.fcar-badge{
+  display:inline-flex;align-items:center;
+  background:#f5f3ff;color:var(--pro);
+  font-size:10px;font-weight:700;
+  padding:2px 9px;border-radius:10px;
+  margin-bottom:10px;
+}
+.fcar-title{font-size:14px;font-weight:700;color:var(--tx);margin-bottom:6px}
+.fcar-desc{font-size:12px;color:var(--mu);line-height:1.65}
+.fcar-gallery-wrap{position:relative}
+.fcar-float-btn{
+  position:absolute;top:50%;transform:translateY(-50%);
+  z-index:10;
+  width:44px;height:44px;border-radius:50%;
+  background:#fff;
+  border:1.5px solid var(--bd);
+  box-shadow:0 4px 16px rgba(0,0,0,.12);
+  cursor:pointer;
+  font-size:22px;line-height:1;
+  color:var(--tx);
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s;
+  font-family:sans-serif;
+}
+.fcar-float-btn:hover{
+  background:var(--g);color:#fff;
+  border-color:var(--g);
+  box-shadow:0 6px 20px rgba(10,110,63,.25);
+  transform:translateY(-50%) scale(1.05);
+}
+.fcar-float-btn:disabled{opacity:.3;cursor:not-allowed;transform:translateY(-50%) scale(1)}
+.fcar-float-prev{left:-22px}
+.fcar-float-next{right:-22px}
+@media(max-width:580px){.fcar-float-btn{display:none}}
+.fcar-dots{display:flex;gap:6px;margin-top:18px;justify-content:center}
+.fcar-dot{width:6px;height:6px;border-radius:50%;background:#b7d9c4;border:none;cursor:pointer;padding:0;transition:all .25s}
+.fcar-dot.active{background:var(--g);width:20px;border-radius:3px}
+@media(max-width:900px){.fcar-card{flex:0 0 calc((100% - 16px) / 2)}}
+@media(max-width:580px){.fcar-card{flex:0 0 100%}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;gap:0}
+  .hero-right{display:none}
+  .hero-left{padding:80px 0 60px}
+  .doc-grid{grid-template-columns:repeat(3,1fr)}
+  .features-grid,.ai-grid,.testi-grid,.pricing-grid{grid-template-columns:1fr 1fr}
+  .flow-steps{grid-template-columns:1fr}
+  .flow-steps::before{display:none}
+  .compare-table tbody td,.compare-table thead th{padding:12px 14px;font-size:12px}
+}
+@media(max-width:580px){
+  nav{padding:0 4%}
+  .nav-upgrade,.nav-links{display:none}
+
+  /* Hero — centred on mobile */
+  .hero-inner{padding:0 4%;grid-template-columns:1fr}
+  .hero-right{display:none}
+  .hero-left{padding:80px 0 48px;align-items:center;text-align:center}
+  .hero-sub-long{display:none}
+  .hero-sub-short{display:block;font-size:16px;color:var(--mu);line-height:1.6;margin-bottom:28px;text-align:center}
+  .hero-badge{align-self:center}
+  .hero-sub{text-align:center;margin:0 auto 32px}
+  .hero-ctas{flex-direction:column;align-items:center;width:100%}
+  .btn-primary,.btn-ghost{width:100%;justify-content:center}
+  .hero-trust{justify-content:center}
+
+  /* All sections — 4% side padding, centred */
+  .pick-section,.features-section,.flow-section,.compare-section,
+  .testi-section,.pricing-section,.faq-section,.final-cta,
+  .feat-carousel-section{padding-left:4%;padding-right:4%}
+
+  /* Inner wrappers full width */
+  .compare-inner,.flow-inner,.testi-inner,.pricing-inner,.faq-inner{
+    max-width:100%
+  }
+
+  /* Section titles centred */
+  .section-h,.section-eyebrow,.section-sub,.compare-h,.compare-sub,.compare-eyebrow{
+    text-align:center
+  }
+  .section-eyebrow{justify-content:center}
+
+  /* Grids */
+  .doc-grid{grid-template-columns:repeat(2,1fr)}
+  .features-grid,.ai-grid,.testi-grid,.pricing-grid{grid-template-columns:1fr}
+  .flow-steps{grid-template-columns:1fr}
+  .flow-steps::before{display:none}
+  .flow-step{text-align:center}
+  .flow-num{margin:0 auto 12px}
+
+  /* Cards text stays left */
+  .feat-card,.testi-card,.price-card,.fcar-card{text-align:left}
+
+  /* FAQ left */
+  .faq-q,.faq-a{text-align:left}
+
+  /* Footer centred */
+  footer{flex-direction:column;align-items:center;text-align:center;gap:12px}
+  .f-links{justify-content:center}
+  .f-copy{text-align:center}
+
+  /* Comparison */
+  .compare-table{font-size:11px;display:block;overflow-x:auto}
+  #pick-label{text-align:center}
+  .pick-section{text-align:center}
+  .doc-card{text-align:left}
+
+  /* Pricing centred headings */
+  .pricing-inner>div{text-align:center}
+  .price-list{text-align:left}
+}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.reveal.on{opacity:1;transform:translateY(0)}
+.btn-white{
+  background:#fff;color:var(--g);
+  font-size:15px;font-weight:700;
+  padding:13px 28px;border-radius:10px;
+  text-decoration:none;transition:all .2s;
+  display:inline-flex;align-items:center;gap:7px;
+}
+.btn-white:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,0,0,.15)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-mark">
+      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+    </div>
+    <span class="nav-logo-text">Naira<span>Docs</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="#features" class="nav-link">Features</a>
+    <a href="#how-it-works" class="nav-link">How it works</a>
+    <a href="#templates" class="nav-link">Templates</a>
+    <a href="#pricing" class="nav-link">Pricing</a>
+    <a href="#faq" class="nav-link">FAQ</a>
+  </div>
+  <div class="nav-right">
+    <a href="app.html" class="nav-signin">Sign in</a>
+    <a href="app.html" class="nav-cta">
+      Start free →
+    </a>
+  </div>
+</nav>
+
+<!-- HERO — Split layout -->
+<section class="hero">
+  <div class="hero-inner">
+  <div class="hero-left">
+    <div class="hero-badge">Free forever for Nigerian businesses</div>
+    <h1>Professional invoices in under<br><span style="color:var(--g)">60 seconds</span></h1>
+    <p class="hero-sub hero-sub-long">NairaDocs is the friendly little tool that turns any Nigerian hustle into a business that looks the part. Invoices, receipts and proposals — sent on WhatsApp in 60 seconds. No signup, no foreign card, no nonsense.</p>
+    <p class="hero-sub hero-sub-short">Create Invoices, receipts &amp; proposals — Share on WhatsApp in 60 seconds.</p>
+    <div class="hero-ctas">
+      <a href="app.html" class="btn-primary">
+        Create your first invoice →
+      </a>
+      <a href="app.html?type=quote" class="btn-ghost">Create Quote</a>
+    </div>
+    <div class="hero-trust">
+      <span class="hero-trust-item">No signup</span>
+      <span class="hero-trust-item">Naira &amp; VAT built-in</span>
+      <span class="hero-trust-item">WhatsApp send</span>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div style="position:relative;width:100%;max-width:420px">
+      <div class="invoice-mockup">
+        <div class="mockup-header">
+          <div>
+            <div class="mockup-brand">Naira<span>Docs</span></div>
+            <div class="mockup-meta">Invoice #INV-0241</div>
+          </div>
+          <div class="mockup-paid">Paid</div>
+        </div>
+        <div class="mockup-body">
+          <div class="mockup-parties">
+            <div>
+              <div class="mockup-label">From</div>
+              <div class="mockup-name">Adaeze Studios</div>
+              <div class="mockup-detail">Lagos, NG</div>
+            </div>
+            <div>
+              <div class="mockup-label">Bill to</div>
+              <div class="mockup-name">Kunle Ventures</div>
+              <div class="mockup-detail">Due 30 May 2026</div>
+            </div>
+          </div>
+          <div class="mockup-items">
+            <div class="mockup-item">
+              <span class="mockup-item-name">Brand identity design</span>
+              <span class="mockup-item-amount">₦450,000</span>
+            </div>
+            <div class="mockup-item">
+              <span class="mockup-item-name">Logo system + guidelines</span>
+              <span class="mockup-item-amount">₦180,000</span>
+            </div>
+            <div class="mockup-item">
+              <span class="mockup-item-name">Social launch kit</span>
+              <span class="mockup-item-amount">₦95,000</span>
+            </div>
+          </div>
+          <div class="mockup-totals">
+            <div class="mockup-subtotal"><span>Subtotal</span><span>₦725,000</span></div>
+            <div class="mockup-subtotal"><span>VAT 7.5%</span><span>₦54,375</span></div>
+            <div class="mockup-total">
+              <span class="mockup-total-label">Total</span>
+              <span class="mockup-total-amount">₦779,375</span>
+            </div>
+          </div>
+        </div>
+        <div class="mockup-wa-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Send on WhatsApp
+        </div>
+      </div>
+      <!-- Toast -->
+      <div class="mockup-toast">
+        <div class="toast-icon">⚡</div>
+        <div>
+          <div class="toast-text">Sent in 47 sec</div>
+          <div class="toast-sub">From draft to inbox</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- PICK A DOCUMENT -->
+<section class="pick-section" id="templates">
+  <div class="pick-label" id="pick-label">Pick a document</div>
+  <div class="doc-grid">
+    <a href="app.html?type=invoice" class="doc-card">
+      <div class="doc-card-icon" style="background:#e6f5ed">🧾</div>
+      <div>
+        <div class="doc-card-title">Invoice</div>
+        <div class="doc-card-sub">Create new <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+    </a>
+    <a href="app.html?type=quote" class="doc-card">
+      <div class="doc-card-icon" style="background:#fef3c7">💬</div>
+      <div>
+        <div class="doc-card-title">Quote</div>
+        <div class="doc-card-sub">Create new <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+    </a>
+    <a href="app.html?type=proposal" class="doc-card">
+      <div class="doc-card-icon" style="background:#ede9fe">📋</div>
+      <div>
+        <div class="doc-card-title">Proposal</div>
+        <div class="doc-card-sub">Create new <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+    </a>
+    <a href="app.html?type=receipt" class="doc-card">
+      <div class="doc-card-icon" style="background:#dbeafe">✅</div>
+      <div>
+        <div class="doc-card-title">Receipt</div>
+        <div class="doc-card-sub">Create new <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+    </a>
+    <a href="app.html?type=delivery" class="doc-card">
+      <div class="doc-card-icon" style="background:#fee2e2">🚚</div>
+      <div>
+        <div class="doc-card-title">Delivery Note</div>
+        <div class="doc-card-sub">Create new <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+    </a>
+    <a href="app.html?type=credit" class="doc-card">
+      <div class="doc-card-icon" style="background:#fce7f3">↩️</div>
+      <div>
+        <div class="doc-card-title">Credit Note</div>
+        <div class="doc-card-sub">Create new <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- TAX NUDGE -->
+<div class="tax-nudge">
+  <strong>Good timing:</strong> The Nigeria Tax Act 2025 now requires businesses to keep proper invoices and records.
+  <a href="app.html"> NairaDocs keeps you covered →</a>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="flow-section" id="how-it-works">
+  <div class="flow-inner">
+    <div class="section-eyebrow" style="justify-content:center">How it works</div>
+    <h2 class="section-h" style="text-align:center">From zero to professional<br>in three steps</h2>
+    <div class="flow-steps">
+      <div class="flow-step reveal">
+        <div class="flow-num">1</div>
+        <div class="flow-title">Fill in your details</div>
+        <div class="flow-desc">Your business name, your client, what you did for them. Takes less than 60 seconds on any phone.</div>
+      </div>
+      <div class="flow-step reveal">
+        <div class="flow-num">2</div>
+        <div class="flow-title">Pick your design</div>
+        <div class="flow-desc">Choose from 9 professional themes. Classic green, midnight blue, executive black, and more. Preview instantly.</div>
+      </div>
+      <div class="flow-step reveal">
+        <div class="flow-num">3</div>
+        <div class="flow-title">Download & send</div>
+        <div class="flow-desc">Save as PDF and share on WhatsApp with one tap. Your client gets it in seconds.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 FEATURE CARDS -->
+<section class="features-section" id="features">
+  <div class="features-grid">
+    <div class="feat-card reveal">
+      <div class="feat-icon" style="background:#e6f5ed">⚡</div>
+      <div class="feat-title">Lightning fast</div>
+      <div class="feat-desc">No signup. Open the app, fill in, download. Under 60 seconds — every time.</div>
+    </div>
+    <div class="feat-card reveal">
+      <div class="feat-icon" style="background:#fef3c7">🎨</div>
+      <div class="feat-title">9 stunning designs</div>
+      <div class="feat-desc">Different layouts, not just colour swaps. Each one looks designer-made.</div>
+    </div>
+    <div class="feat-card reveal">
+      <div class="feat-icon" style="background:#dbeafe">📱</div>
+      <div class="feat-title">WhatsApp first</div>
+      <div class="feat-desc">One tap to share with a pre-written message your client expects. Always free.</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE — "Why Nigerians Switch" -->
+<section class="compare-section">
+  <div class="compare-inner">
+    <div class="compare-eyebrow">Why Nigerians Switch</div>
+    <h2 class="compare-h">How we compare to the foreign giants.</h2>
+    <p class="compare-sub">Stripe, FreshBooks, Wave and Invoice Ninja are great — for the US. Here's why thousands of Nigerian businesses use us instead.</p>
+    <div class="compare-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="ours">NairaDocs</th>
+            <th>Stripe</th>
+            <th>FreshBooks</th>
+            <th>Wave</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Built for naira &amp; Nigerian banks</td>
+            <td><span class="compare-check">✓</span></td>
+            <td><span class="compare-x">✕</span></td>
+            <td><span class="compare-x">✕</span></td>
+            <td><span class="compare-x">✕</span></td>
+          </tr>
+          <tr>
+            <td>Send to WhatsApp in one tap</td>
+            <td><span class="compare-check">✓</span></td>
+            <td><span class="compare-x">✕</span></td>
+            <td><span class="compare-x">✕</span></td>
+            <td><span class="compare-x">✕</span></td>
+          </tr>
+          <tr>
+            <td>No signup to start</td>
+            <td><span class="compare-check">✓</span></td>
+            <td><span class="compare-x">✕</span></td>
+            <td><span class="compare-x">✕</span></td>
+            <td><span class="compare-check-sm">✓</span></td>
+          </tr>
+          <tr>
+            <td>Free forever core plan</td>
+            <td><span class="compare-check">✓</span></td>
+            <td><span class="compare-x">✕</span></td>
+            <td><span class="compare-check-sm">✓</span></td>
+            <td><span class="compare-check-sm">✓</span></td>
+          </tr>
+          <tr>
+            <td>Works offline on slow data</td>
+            <td><span class="compare-check">✓</span></td>
+            <td><span class="compare-x">✕</span></td>
+            <td><span class="compare-x">✕</span></td>
+            <td><span class="compare-x">✕</span></td>
+          </tr>
+          <tr>
+            <td>Proposals, invoices &amp; receipts</td>
+            <td><span class="compare-check">✓</span></td>
+            <td><span class="compare-check-sm">✓</span></td>
+            <td><span class="compare-check-sm">✓</span></td>
+            <td><span class="compare-check-sm">✓</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES CAROUSEL -->
+<section class="feat-carousel-section">
+  <div class="feat-carousel-inner">
+    <div style="margin-bottom:32px">
+      <div>
+        <div class="section-eyebrow" style="justify-content:center">Pro features</div>
+        <h2 class="section-h" style="text-align:center">Everything your business needs<br>to look unstoppable</h2>
+        <p class="section-sub" style="margin-bottom:0;text-align:center;max-width:520px;margin-left:auto;margin-right:auto">Unlock Pro for ₦2,500/month and get all of these — AI, tracking, automation, and more.</p>
+      </div>
+    </div>
+    <div class="fcar-gallery-wrap">
+      <button class="fcar-float-btn fcar-float-prev" id="fcar-prev" onclick="fcarMove(-1)" aria-label="Previous">&#8249;</button>
+      <button class="fcar-float-btn fcar-float-next" id="fcar-next" onclick="fcarMove(1)" aria-label="Next">&#8250;</button>
+      <div class="fcar-viewport">
+        <div class="fcar-track" id="fcar-track">
+          <div class="fcar-card"><div class="fcar-icon">💳</div><div class="fcar-badge">Pro</div><div class="fcar-title">Payment tracking</div><div class="fcar-desc">See every document — Paid, Pending, Overdue — in one dashboard. Total invoiced, received, outstanding. Know your cash flow at a glance.</div></div>
+          <div class="fcar-card"><div class="fcar-icon">🔁</div><div class="fcar-badge">Pro</div><div class="fcar-title">Quote → Invoice → Receipt</div><div class="fcar-desc">Client approved your quote? One click converts it to an Invoice. They paid? Generate the Receipt instantly. No retyping, ever.</div></div>
+          <div class="fcar-card"><div class="fcar-icon">📨</div><div class="fcar-badge">Pro</div><div class="fcar-title">Send via email directly</div><div class="fcar-desc">Send professional invoices straight from NairaDocs to your client's inbox. Branded email, PDF attached. No manual downloading and attaching.</div></div>
+          <div class="fcar-card"><div class="fcar-icon">👁️</div><div class="fcar-badge">Pro</div><div class="fcar-title">Invoice read receipts</div><div class="fcar-desc">Know exactly when your client opened your invoice — date, time, how many times. "I didn't receive it" stops working the moment you send with NairaDocs.</div></div>
+          <div class="fcar-card"><div class="fcar-icon">🤖</div><div class="fcar-badge">Pro</div><div class="fcar-title">Automated WhatsApp reminders</div><div class="fcar-desc">Set it once — NairaDocs automatically sends WhatsApp reminders on overdue invoices at 3, 7, and 14 days. Professional messages, not nagging.</div></div>
+          <div class="fcar-card"><div class="fcar-icon">🎯</div><div class="fcar-badge">Pro</div><div class="fcar-title">AI item suggester</div><div class="fcar-desc">Type your business name — AI suggests 6 realistic Nigerian-priced line items instantly. Designers get design items. Caterers get catering items.</div></div>
+          <div class="fcar-card"><div class="fcar-icon">🧾</div><div class="fcar-badge">Pro</div><div class="fcar-title">Smart VAT analyser</div><div class="fcar-desc">AI reads your invoice items and flags which are VATable (7.5%), zero-rated, or VAT-exempt under the Nigeria Tax Act 2025. No more guessing your tax obligations.</div></div>
+          <div class="fcar-card"><div class="fcar-icon">✅</div><div class="fcar-badge">Pro</div><div class="fcar-title">NRS compliance checker</div><div class="fcar-desc">Checks your invoice against NRS requirements before you send — Tax ID, sequential numbering, VAT calculation, mandatory fields. Nothing gets missed.</div></div>
+          <div class="fcar-card"><div class="fcar-icon">📲</div><div class="fcar-badge">Pro</div><div class="fcar-title">AI follow-up writer</div><div class="fcar-desc">Select an overdue invoice — AI writes the perfect follow-up message. Gentle at 3 days, firm at 14, final notice at 30+. For WhatsApp or email.</div></div>
+          <div class="fcar-card"><div class="fcar-icon">⚖️</div><div class="fcar-badge">Pro</div><div class="fcar-title">Payment terms writer</div><div class="fcar-desc">Tell AI your deposit %, due date, and late penalty. It writes a complete professional payment clause in seconds. No lawyer, no guessing.</div></div>
+          <div class="fcar-card"><div class="fcar-icon">📊</div><div class="fcar-badge">Pro</div><div class="fcar-title">Business health summary</div><div class="fcar-desc">AI reads your invoice history and delivers a plain-English report — total invoiced, received, overdue, your best client, your slowest payer this month.</div></div>
+          <div class="fcar-card"><div class="fcar-icon">✍️</div><div class="fcar-badge">Pro</div><div class="fcar-title">Proposal intro writer</div><div class="fcar-desc">5 tone options. AI writes a compelling proposal opening paragraph — professional, confident, warm, persuasive — addressed to your client by name.</div></div>
+          <div class="fcar-card"><div class="fcar-icon">🗂️</div><div class="fcar-badge">Pro</div><div class="fcar-title">Unlimited document history</div><div class="fcar-desc">Save, search, filter, and reload every document you've ever created. Access from any device when logged in. Never lose an invoice again.</div></div>
+          <div class="fcar-card"><div class="fcar-icon">👥</div><div class="fcar-badge">Pro</div><div class="fcar-title">Save unlimited clients</div><div class="fcar-desc">Build your client list. Auto-fill their name, address, email, and phone on any new document — one click, no retyping.</div></div>
+          <div class="fcar-card"><div class="fcar-icon">🎨</div><div class="fcar-badge">Pro</div><div class="fcar-title">Custom brand palette</div><div class="fcar-desc">Set your exact brand colours. Every document theme adapts to your palette — your green, your font, your identity. Completely yours.</div></div>
+          <div class="fcar-card"><div class="fcar-icon">🖼️</div><div class="fcar-badge">Pro</div><div class="fcar-title">Logo background removal</div><div class="fcar-desc">Upload any logo — AI removes the background automatically. Looks polished and professional on every design theme.</div></div>
+          <div class="fcar-card"><div class="fcar-icon">🔍</div><div class="fcar-badge">Pro</div><div class="fcar-title">Duplicate detector</div><div class="fcar-desc">Before saving, AI checks if this looks like a duplicate invoice for the same client within the last 30 days. Prevents accidental double-billing.</div></div>
+          <div class="fcar-card"><div class="fcar-icon">📧</div><div class="fcar-badge">Pro</div><div class="fcar-title">Email delivery tracking</div><div class="fcar-desc">Full delivery history on every document sent. See delivered, opened, and failed — all in one place.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="fcar-dots" id="fcar-dots"></div>
+    <div style="margin-top:32px;display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+      <a href="app.html" class="btn-primary" style="display:inline-flex">Get Pro — ₦2,500/month →</a>
+      <span style="font-size:13px;color:var(--mu)">or ₦25,000/year · 2 months free</span>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section">
+  <div class="testi-inner">
+    <div class="section-eyebrow" style="justify-content:center">What people say</div>
+    <h2 class="section-h" style="text-align:center">Nigerian businesses love NairaDocs</h2>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Before NairaDocs I was sending payment details on WhatsApp. Now my clients receive a proper invoice and think I have a full accounting team."</p>
+        <div class="testi-author">
+          <div class="testi-av" style="background:#0a6e3f">AO</div>
+          <div><div class="testi-name">Amaka Okonkwo</div><div class="testi-role">Event Planner · Lagos</div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"The proposal template helped me win a ₦2.4M contract. My client said it looked more professional than companies 10x my size."</p>
+        <div class="testi-author">
+          <div class="testi-av" style="background:#0f2d5e">CE</div>
+          <div><div class="testi-name">Chukwuemeka Eze</div><div class="testi-role">IT Consultant · Abuja</div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"I used to spend 30 minutes on invoices in Word. Now it takes 60 seconds and looks 10x better. The WhatsApp share button is genius."</p>
+        <div class="testi-author">
+          <div class="testi-av" style="background:#c0392b">FB</div>
+          <div><div class="testi-name">Fatima Bello</div><div class="testi-role">Fashion Designer · Kano</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="pricing-inner">
+    <div style="text-align:center;margin-bottom:0">
+      <div class="section-eyebrow" style="justify-content:center">Simple pricing</div>
+      <h2 class="section-h" style="text-align:center;max-width:100%">Start free. Upgrade when it matters.</h2>
+      <p style="font-size:15px;color:var(--mu);text-align:center;margin-bottom:0">No credit card. No tricks. Free forever.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-label">Free forever</div>
+        <div class="price-amount">₦0</div>
+        <div class="price-period"></div>
+        <div class="price-desc">Everything you need to start creating today.</div>
+        <ul class="price-list">
+          <li>All 6 document types</li>
+          <li>9 design themes</li>
+          <li>Logo upload · WhatsApp share</li>
+          <li>Quote → Invoice → Receipt</li>
+          <li>Payment tracking</li>
+          <li>3 AI calls per month</li>
+          <li class="no">NairaDocs footer on downloads</li>
+          <li class="no">Unlimited AI features</li>
+        </ul>
+        <a href="app.html" class="price-btn price-btn-free">Get started free →</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-badge">Most popular</div>
+        <div class="price-label">Pro monthly</div>
+        <div class="price-amount">₦2,500<small>/mo</small></div>
+        <div class="price-period">or ₦25,000/year · 2 months free</div>
+        <div class="price-desc">For businesses that want to look 100% professional.</div>
+        <ul class="price-list">
+          <li>Everything in Free</li>
+          <li><strong>No footer — 100% your brand</strong></li>
+          <li>Unlimited AI — all 6 features</li>
+          <li>Custom brand colour palette</li>
+          <li>Auto logo background removal</li>
+          <li>Unlimited history &amp; clients</li>
+          <li>Full payment dashboard</li>
+        </ul>
+        <a href="app.html" class="price-btn price-btn-pro">Get Pro — ₦2,500/mo →</a>
+      </div>
+      <div class="price-card">
+        <div class="price-label">One document</div>
+        <div class="price-amount">₦500<small>/doc</small></div>
+        <div class="price-period"></div>
+        <div class="price-desc">Just need one clean document right now? No commitment.</div>
+        <ul class="price-list">
+          <li>One clean download</li>
+          <li>No footer branding</li>
+          <li>All themes available</li>
+          <li class="no">AI features</li>
+          <li class="no">History saved</li>
+        </ul>
+        <a href="app.html" class="price-btn price-btn-doc">Pay ₦500 for one →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="faq-inner">
+    <div style="text-align:center;margin-bottom:0">
+      <div class="section-eyebrow" style="justify-content:center">FAQ</div>
+      <h2 class="section-h" style="text-align:center;max-width:100%">Common questions</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Is NairaDocs really free? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Yes — completely free. All 6 document types, all 9 designs, WhatsApp share, and basic payment tracking are free forever. Free downloads include a small NairaDocs footer. Upgrade to Pro (₦2,500/month) to remove it, or pay ₦500 for a single clean document.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Do I need to create an account? <span class="faq-icon">+</span></button>
+        <div class="faq-a">No signup, no account, no password. Open NairaDocs and start creating immediately. Your documents save automatically in your browser. Sign in optionally to sync across devices.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Does it work on iPhone and Android? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Yes — NairaDocs is built mobile-first. Works on any phone, tablet, or computer. On iPhone, save your invoice as PDF through Share → Print → pinch the preview to export as PDF.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Is it NRS/VAT compliant? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Yes. Every invoice includes 7.5% VAT calculation, sequential numbering, and an optional NRS Tax ID field. Your documents meet the Nigeria Tax Act 2025 record-keeping requirements.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What does Pro actually add? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Pro removes the footer branding, unlocks all 6 AI features, lets you save unlimited clients and documents, gives you a custom brand colour palette, auto logo background removal, and a full payment tracking dashboard. Most users upgrade the first time they send an invoice to a serious client.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Your next invoice is<br>60 seconds away.</h2>
+  <p>No signup. No downloads. Just open and start — right now.</p>
+  <a href="app.html" class="btn-white">Create free invoice →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo">
+    <div class="f-logo-mark">
+      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+    </div>
+    <span class="f-brand">NairaDocs</span>
+  </div>
+  <div class="f-links">
+    <a href="#" class="f-link">Features</a>
+    <a href="#" class="f-link">Pricing</a>
+    <a href="app.html" class="f-link">Create invoice</a>
+  </div>
+  <div class="f-copy">© 2026 NairaDocs · Professional documents for Nigerian businesses</div>
+</footer>
+
+<script>
+// ── FEATURES CAROUSEL ──────────────────────────────────────────────────
+(function(){
+  let fcarIdx = 0;
+  const track = document.getElementById('fcar-track');
+  const dotsEl = document.getElementById('fcar-dots');
+  if(!track) return;
+
+  function getVisible(){
+    if(window.innerWidth <= 580) return 1;
+    if(window.innerWidth <= 900) return 2;
+    return 3;
+  }
+
+  const cards = track.querySelectorAll('.fcar-card');
+  const total = cards.length;
+
+  function buildDots(){
+    if(!dotsEl) return;
+    const vis = getVisible();
+    const pages = Math.ceil(total / vis);
+    dotsEl.innerHTML = '';
+    for(let i=0;i<pages;i++){
+      const d = document.createElement('button');
+      d.className = 'fcar-dot' + (i===0?' active':'');
+      d.setAttribute('aria-label','Page '+(i+1));
+      d.onclick = ()=>fcarGoTo(i * vis);
+      dotsEl.appendChild(d);
+    }
+  }
+
+  function updateDots(){
+    if(!dotsEl) return;
+    const vis = getVisible();
+    const page = Math.floor(fcarIdx / vis);
+    dotsEl.querySelectorAll('.fcar-dot').forEach((d,i)=>d.classList.toggle('active',i===page));
+  }
+
+  function fcarGoTo(idx){
+    const vis = getVisible();
+    const maxIdx = Math.max(0, total - vis);
+    if(idx < 0) fcarIdx = maxIdx;
+    else if(idx > maxIdx) fcarIdx = 0;
+    else fcarIdx = idx;
+    const cardW = cards[0].offsetWidth + 16;
+    track.style.transform = 'translateX(-' + (fcarIdx * cardW) + 'px)';
+    updateDots();
+    const prev = document.getElementById('fcar-prev');
+    const next = document.getElementById('fcar-next');
+    if(prev) prev.disabled = false;
+    if(next) next.disabled = false;
+  }
+
+  window.fcarMove = function(dir){
+    const vis = getVisible();
+    fcarGoTo(fcarIdx + (dir * vis));
+  };
+
+  buildDots();
+  fcarGoTo(0);
+  window.addEventListener('resize', ()=>{ buildDots(); fcarGoTo(fcarIdx); });
+
+  let touchStartX = 0;
+  const vp = document.querySelector('.fcar-viewport');
+  if(vp){
+    vp.addEventListener('touchstart', e=>{ touchStartX = e.touches[0].clientX; },{passive:true});
+    vp.addEventListener('touchend', e=>{
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if(Math.abs(diff) > 50) fcarMove(diff > 0 ? 1 : -1);
+    },{passive:true});
+  }
+})();
+
+// FAQ accordion
+function toggleFaq(btn){
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+  if(!isOpen) item.classList.add('open');
+}
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('on'); obs.unobserve(e.target); }
+  });
+},{threshold:0.08,rootMargin:'0px 0px -10px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Nav shadow on scroll
+window.addEventListener('scroll',()=>{
+  document.querySelector('nav').style.boxShadow = window.scrollY > 20
+    ? '0 1px 20px rgba(0,0,0,.08)' : 'none';
+});
+</script>
+</body>
+</html>
