@@ -359,7 +359,7 @@ textarea { resize: vertical; min-height: 70px; }
   background: none; border: none; cursor: pointer;
   font-size: 20px; color: var(--mu); line-height: 1;
   width: 28px; height: 28px; display: flex; align-items: center;
-  justify-content: center; border-radius: var(--r3); transition: all .15s;
+  justify-content: center; border-radius: 6px; transition: all .15s;
 }
 .modal-close:hover { background: var(--bd2); color: var(--tx); }
 .modal h2 { font-size: 17px; font-weight: 700; color: var(--tx); margin-bottom: 6px; }
@@ -699,7 +699,7 @@ textarea { resize: vertical; min-height: 70px; }
 .sec:focus-within { box-shadow: 0 0 0 2px rgba(10,110,63,.08), 0 1px 4px rgba(0,0,0,.05); }
 
 /* Cleaner free banner */
-.free-banner { border-radius: var(--r); }
+.free-banner { border-radius: 10px; }
 
 /* Tighter doc tabs */
 .main-tabs { gap: 0; }
@@ -779,6 +779,45 @@ input::placeholder, textarea::placeholder { color: #b0b7c3; font-size: 13px; }
 .ai-loading-dot:nth-child(2) { animation-delay: .15s; }
 .ai-loading-dot:nth-child(3) { animation-delay: .3s; }
 @keyframes aiDot { 0%,80%,100%{transform:scale(.8);opacity:.4} 40%{transform:scale(1.1);opacity:1} }
+
+/* ══ MOBILE RESPONSIVE ══════════════════════════════════════ */
+@media (max-width: 600px) {
+  .app { padding: 12px 12px 80px; max-width: 100%; }
+  .header { padding: 0 12px; height: 54px; }
+  .brand { font-size: 15px; }
+  .tagline { display: none; }
+  .tier-btn { font-size: 10px; padding: 4px 8px; }
+  .upgrade-btn { font-size: 10px; padding: 5px 9px; }
+  .sec { padding: .85rem .9rem; margin-bottom: .65rem; }
+  .main-tabs { display:flex; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; max-width:100%; }
+  .main-tabs::-webkit-scrollbar { display:none; }
+  .main-tab { white-space:nowrap; flex-shrink:0; font-size:11px; padding:5px 10px; }
+  .grid2 { grid-template-columns: 1fr; gap: 8px; }
+  input, select, textarea { font-size: 13px; padding: 8px 10px; }
+  .themes-row { display:grid; grid-template-columns:repeat(3,1fr); gap:5px; }
+  .tc { width:100%; min-width:0; }
+  .tp { height:40px; }
+  .tc-name { font-size:8.5px; padding:3px 2px; }
+  .font-picker-row { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+  .font-opt { min-width:0; width:100%; padding:7px 8px; }
+  .font-opt-name { font-size:12px; }
+  .font-opt-sample { font-size:9px; }
+  .items-hdr, .item-row { grid-template-columns:minmax(0,1fr) 42px 72px 60px 22px; gap:3px; }
+  .item-row input { padding:6px 5px; font-size:12px; }
+  .logo-area { min-height:56px; }
+  .ai-btn { font-size:10px; padding:5px 8px; gap:4px; }
+  .btn-g { font-size:13px; padding:11px; }
+  .save-doc-btn, .btn-preview { font-size:11px; padding:6px 10px; }
+  .prev-toolbar { flex-wrap:wrap; gap:6px; }
+  .print-btn { font-size:11px; padding:6px 10px; }
+  .prev-box { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .prev-box > div > div { min-width:540px; }
+  .modal { padding:18px 14px; margin:10px; }
+  .modal h2 { font-size:15px; }
+  .total-row { font-size:12px; }
+  .total-row.grand { font-size:14px; }
+  .chain-btn { font-size:11px; padding:6px 10px; }
+}
 
 </style>
 </head>
@@ -1499,7 +1538,7 @@ input::placeholder, textarea::placeholder { color: #b0b7c3; font-size: 13px; }
       <div style="position:absolute;top:-9px;left:16px;background:var(--pro);color:#fff;font-size:9px;font-weight:700;padding:2px 8px;border-radius:8px">BEST VALUE</div>
       <div style="display:flex;align-items:center;justify-content:space-between">
         <div><div style="font-size:14px;font-weight:700;color:var(--tx)">Pro Monthly</div><div style="font-size:11px;color:var(--mu);margin-top:2px">Unlimited AI · Clean downloads · All features</div></div>
-        <div style="font-size:18px;font-weight:700;color:var(--pro)">₦2,500<span style="font-size:11px;font-weight:400">/mo</span></div>
+        <div style="font-size:18px;font-weight:700;color:var(--pro)">₦3,500<span style="font-size:11px;font-weight:400">/mo</span></div>
       </div>
     </div>
     <div onclick="activatePerDoc()" style="border:1px solid var(--bd);border-radius:10px;padding:14px 16px;margin-bottom:14px;cursor:pointer" onmouseover="this.style.borderColor='var(--gold)';this.style.background='#fdf6e3'" onmouseout="this.style.borderColor='var(--bd)';this.style.background=''">
@@ -1509,7 +1548,7 @@ input::placeholder, textarea::placeholder { color: #b0b7c3; font-size: 13px; }
       </div>
     </div>
     <div id="dl-math-tip" style="background:#fdf6e3;border-radius:8px;padding:10px 12px;font-size:11px;color:#7a5c1a;line-height:1.5;margin-bottom:14px;display:none">
-      💡 At ₦200 per document, just 13 downloads = ₦2,600 — more than Pro for a whole month.
+      💡 At ₦500 per document, just 7 downloads = ₦3,500 — the same as Pro for a whole month.
     </div>
     <button onclick="downloadWithWatermark()" style="width:100%;padding:10px;background:none;border:1px solid var(--bd);border-radius:8px;font-size:12px;color:var(--mu);cursor:pointer;font-family:var(--ff)">
       Download with watermark (free)
@@ -1574,8 +1613,7 @@ input::placeholder, textarea::placeholder { color: #b0b7c3; font-size: 13px; }
     </button>
 
     <div style="text-align:center;margin-top:12px;font-size:11px;color:var(--mu2)">🔒 Secured 
-<script>
-fetch('/api/config').then(r=>r.json()).then(c=>{if(c.aiModel)window.AI_MODEL=c.aiModel;}).catch(()=>{});
+<script>(location.protocol!=='file:'&&fetch('/api/config')).then(r=>r.json()).then(c=>{if(c.aiModel)window.AI_MODEL=c.aiModel;}).catch(()=>{});
 
 let docType='invoice', theme='classic', isPro=false, logoDataUrl=null;
 
@@ -1843,7 +1881,7 @@ function activateAdminPro(){
 // ⚠️  TEST MODE — swap pk_test_ for pk_live_ when Paystack account is verified
 // ⚠️  TO GO LIVE: change PAYSTACK_KEY to your live public key
 // ═══════════════════════════════════════════════════════════════════════════
-const PAYSTACK_KEY = 'pk_live_8590fb2e66bfeece3c883599c23f2cde12c5c256';
+const PAYSTACK_KEY = 'REPLACE_WITH_pk_live_KEY';
 
 // Track what the user is paying for when email modal opens
 let pendingPaymentType = null; // 'pro' or 'perdoc'
@@ -1886,7 +1924,7 @@ function activatePro(plan){
   pendingPaymentType = plan==='yearly' ? 'pro-yearly' : 'pro';
   document.getElementById('email-modal-title').textContent = 'Almost there!';
   document.getElementById('email-modal-sub').textContent = 'Enter your email so we can send your receipt and keep Pro active across devices.';
-  document.getElementById('email-proceed-btn').textContent = 'Pay ₦2,500 — Activate Pro';
+  document.getElementById('email-proceed-btn').textContent = 'Pay ₦3,500 — Activate Pro';
   // Pre-fill email if we know it
   const saved = JSON.parse(localStorage.getItem('nd_pro_status')||'null');
   if(saved&&saved.email) document.getElementById('payment-email').value = saved.email;
@@ -2325,7 +2363,7 @@ function buildDoc(){
   // Watermark
   const wmHTML=cleanDoc?'':`
     <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-35deg);z-index:30;pointer-events:none;text-align:center;white-space:nowrap">
-      <span style="font-size:52px;font-weight:900;font-family:DM Sans,sans-serif;font-weight:800;color:rgba(10,110,63,.08);letter-spacing:4px;text-transform:uppercase;display:block;line-height:1">NAIRADOCS</span>
+      <span style="font-size:52px;font-weight:900;font-family:Georgia,serif;color:rgba(10,110,63,.12);letter-spacing:4px;text-transform:uppercase;display:block;line-height:1">NAIRADOCS</span>
       <span style="font-size:13px;font-weight:700;color:rgba(10,110,63,.16);letter-spacing:3px;display:block;margin-top:4px;text-transform:uppercase">FREE DOCUMENT</span>
     </div>`;
 
@@ -2388,7 +2426,9 @@ function buildDoc(){
       </div>
     </div>`;
 
-    const sharedNotes = g('notes')?`<div style="background:${ts.noteBg||'#f9faf9'};border-left:3px solid ${ts.noteBorder||'#e5e7eb'};padding:10px 14px;border-radius:0 6px 6px 0;font-size:11px;color:#475569;line-height:1.6;margin-bottom:12px">${g('notes')}</div>`:'';
+    const sharedNotes = (g('doc-notes')||g('notes'))?`<div style="background:${ts.noteBg||'#f9faf9'};border-left:3px solid ${ts.noteBorder||'#e5e7eb'};padding:10px 14px;border-radius:0 6px 6px 0;font-size:11px;color:#475569;line-height:1.6;margin-bottom:12px">${g('doc-notes')||g('notes')}</div>`:'';
+
+    const sharedExtra = g('doc-extra')?`<div style="font-size:11px;color:#64748b;line-height:1.6;margin-top:8px;padding-top:8px;border-top:1px solid #f1f5f9;font-style:italic">${g('doc-extra')}</div>`:'';
 
     const sharedBank = (g('biz-bank')||g('biz-acct'))?`<div style="font-size:11px;color:#475569;margin-top:8px"><strong style="font-size:9px;text-transform:uppercase;letter-spacing:.8px;color:#9ca3af;display:block;margin-bottom:4px">Payment details</strong>${g('biz-bank')||''} ${g('biz-acct')?'· '+g('biz-acct'):''} ${g('biz-acct-name')?'· '+g('biz-acct-name'):''}</div>`:'';
 
@@ -2422,7 +2462,7 @@ function buildDoc(){
             <div><div style="font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#0a6e3f;margin-bottom:5px">Bill to</div><div style="font-size:13px;font-weight:700;color:#1a1a2e">${g('client-name')||'Client Name'}</div>${g('client-phone')?`<div style="font-size:11px;color:#64748b;margin-top:2px">${g('client-phone')}</div>`:''}</div>
           </div>
           <div style="background:${tc2.light?tc2.hdr+'18':'#f5f5f5'};border-left:3px solid ${tc2.gt};padding:5px 10px;font-size:9px;font-weight:700;color:${tc2.gt};text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;-webkit-print-color-adjust:exact;print-color-adjust:exact">Items &amp; services</div>
-          ${sharedTable}${sharedTotals}${sharedNotes}${sharedBank}
+          ${sharedTable}${sharedTotals}${sharedNotes}${sharedExtra}${sharedBank}
         </div>
         <div style="background:#1a1a2e;padding:11px 32px;display:flex;justify-content:space-between;align-items:center;-webkit-print-color-adjust:exact;print-color-adjust:exact">
           <span style="font-size:10px;font-weight:600;color:#fff">${biz}</span>
@@ -2455,7 +2495,7 @@ function buildDoc(){
             <div><div style="font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#9ca3af;margin-bottom:5px">Billed to</div><div style="font-size:13px;font-weight:700;color:#111">${g('client-name')||'Client Name'}</div>${g('client-phone')?`<div style="font-size:11px;color:#6b7280;margin-top:2px">${g('client-phone')}</div>`:''}</div>
             <div><div style="font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#9ca3af;margin-bottom:5px">Payment</div>${g('biz-bank')?`<div style="font-size:12px;font-weight:700;color:#111">${g('biz-bank')}</div>`:''}<div style="font-size:11px;color:#6b7280">${g('biz-acct')||''}</div></div>
           </div>
-          ${sharedTable}${sharedTotals}${sharedNotes}
+          ${sharedTable}${sharedTotals}${sharedNotes}${sharedExtra}
         </div>
         <div style="background:#111;padding:11px 40px;display:flex;justify-content:space-between;-webkit-print-color-adjust:exact;print-color-adjust:exact">
           <span style="font-size:10px;color:rgba(255,255,255,.7);font-weight:600">${biz}</span>
@@ -2494,7 +2534,7 @@ function buildDoc(){
           <div style="font-size:14px;font-weight:700;color:#111;margin-bottom:3px">${g('client-name')||'Client Name'}</div>
           <div style="font-size:11px;color:#6b7280;line-height:1.5;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid #f1f5f9">${g('client-phone')||''}${g('client-addr')?` · ${g('client-addr')}`:''}${g('client-email')?` · ${g('client-email')}`:''}</div>
           <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#0a6e3f;margin-bottom:10px;display:flex;align-items:center;gap:6px">Items &amp; services <span style="flex:1;height:1px;background:#e2e8f0;display:inline-block"></span></div>
-          ${sharedTable}${sharedTotals}${sharedNotes}${sharedBank}
+          ${sharedTable}${sharedTotals}${sharedNotes}${sharedExtra}${sharedBank}
           <div style="background:#f8fafc;border-radius:6px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;font-size:10px;color:#94a3b8;margin-top:auto">
             <span>Thank you for your business</span>
             <span>${cleanDoc?biz:'NairaDocs.ng'}</span>
@@ -3756,7 +3796,7 @@ function renderPhotosGrid(){
   grid.innerHTML=docPhotos.map((src,i)=>`
     <div style="position:relative;border-radius:6px;overflow:hidden;aspect-ratio:4/3;background:#f1f5f9">
       <img src="${src}" style="width:100%;height:100%;object-fit:cover" />
-      <button onclick="removeDocPhoto(${i})" style="position:absolute;top:4px;right:4px;background:rgba(0,0,0,.6);color:#fff;border:none;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:12px;line-height:1;display:flex;align-items:center;justify-content:center;font-family:var(--ff)">×</button>
+      <button onclick="removeDocPhoto(${i})" style="position:absolute;top:4px;right:4px;background:rgba(0,0,0,.6);color:#fff;border:none;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:12px;line-height:1;display:flex;align-items:center;justify-content:center;font-family:sans-serif">×</button>
     </div>
   `).join('');
 }
@@ -3823,7 +3863,8 @@ function closeDlModal(){
 document.addEventListener('DOMContentLoaded',()=>{
   const dlModal = document.getElementById('dl-modal');
   if(dlModal) dlModal.addEventListener('click',function(e){if(e.target===this)closeDlModal();});
-});
+  if(window.location.hash==='#pro') setTimeout(()=>openPro(),600);
+});;
 
 function doPrint(){
   try {
@@ -3869,15 +3910,12 @@ function getSavedAccounts(){
   try{ return JSON.parse(localStorage.getItem(BANK_KEY)||'[]'); } catch(e){ return []; }
 }
 function openBankModal(){
-  ['bank-modal-name','bank-modal-acct','bank-modal-holder','bank-modal-label'].forEach(id=>{
-    const el=document.getElementById(id); if(el) el.value='';
-  });
+  ['bank-modal-name','bank-modal-acct','bank-modal-holder','bank-modal-label'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
   renderSavedAccountsList();
-  document.getElementById('bank-modal').classList.add('open');
+  var m=document.getElementById('bank-modal');
+  if(m){m.style.cssText='display:flex!important;position:fixed!important;top:0!important;left:0!important;right:0!important;bottom:0!important;background:rgba(0,0,0,0.5)!important;z-index:99999!important;align-items:center!important;justify-content:center!important;padding:16px!important;';}
 }
-function closeBankModal(){
-  document.getElementById('bank-modal').classList.remove('open');
-}
+function closeBankModal(){var m=document.getElementById('bank-modal');if(m)m.style.cssText='display:none!important;';}
 function confirmSaveBankDetails(){
   const bankName=document.getElementById('bank-modal-name').value.trim();
   const acctNum=document.getElementById('bank-modal-acct').value.trim();
@@ -3996,14 +4034,18 @@ const ANTHROPIC_API_KEY = 'YOUR_API_KEY_HERE';
 
 async function callClaude(prompt, maxTokens=300){
   const model = window.AI_MODEL || 'claude';
-  const response = await fetch('/api/ai', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ prompt, maxTokens, model })
-  });
-  if(!response.ok) throw new Error('AI request failed: ' + response.status);
-  const data = await response.json();
-  return data.text || '';
+  try {
+    const resp = await fetch('/api/ai', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({prompt, maxTokens, model})
+    });
+    if(!resp.ok) throw new Error('AI failed: '+resp.status);
+    const d = await resp.json();
+    return d.text || '';
+  } catch(e) {
+    showSaveToast('AI unavailable — check API key in Vercel settings');
+    throw e;
+  }
 }
 
 function loadingHTML(msg){
